@@ -19,7 +19,3 @@ func FactorialIterative(n int) int {
 	}
 	return result
 }
-
-func main() {
-	println("Factorial result: ", Factorial(4))
-}
