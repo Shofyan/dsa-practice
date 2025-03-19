@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	println("Factorial result: ", Factorial(4))
@@ -36,6 +38,26 @@ func main() {
 
 	for _, v := range nQueen(5) {
 		fmt.Println(v)
+	}
+
+	// Define a graph with weighted edges.
+	graph := Graph{
+		0: {{1, 10}, {2, 15}, {3, 20}},
+		1: {{0, 10}, {3, 25}, {4, 30}},
+		2: {{0, 15}, {4, 10}},
+		3: {{0, 20}, {1, 25}, {4, 20}},
+		4: {{1, 30}, {2, 10}, {3, 20}},
+	}
+
+	// Print the graph before running Dijkstra's algorithm.
+	PrintGraph(graph)
+
+	// Run Dijkstra's algorithm from a starting city (node 0).
+	startCity := 0
+	distances := Dijkstra(graph, startCity)
+	fmt.Printf("\nShortest distances from city %d:\n", startCity)
+	for city, dist := range distances {
+		fmt.Printf("City %d: %d\n", city, dist)
 	}
 
 }
