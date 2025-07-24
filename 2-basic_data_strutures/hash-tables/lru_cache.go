@@ -90,16 +90,11 @@ func main() {
 	lru := Constructor(2)
 	lru.Put(1, 1)
 	lru.Put(2, 2)
-	fmt.Printf("Get(1): %d
-", lru.Get(1)) // returns 1
-	lru.Put(3, 3)                            // evicts key 2
-	fmt.Printf("Get(2): %d
-", lru.Get(2)) // returns -1 (not found)
-	lru.Put(4, 4)                            // evicts key 1
-	fmt.Printf("Get(1): %d
-", lru.Get(1)) // returns -1 (not found)
-	fmt.Printf("Get(3): %d
-", lru.Get(3)) // returns 3
-	fmt.Printf("Get(4): %d
-", lru.Get(4)) // returns 4
+	fmt.Printf("Get(1): %d", lru.Get(1)) // returns 1
+	lru.Put(3, 3)                        // evicts key 2
+	fmt.Printf("Get(2): %d", lru.Get(2)) // returns -1 (not found)
+	lru.Put(4, 4)                        // evicts key 1
+	fmt.Printf("Get(1): %d", lru.Get(1)) // returns -1 (not found)
+	fmt.Printf("Get(3): %d", lru.Get(3)) // returns 3
+	fmt.Printf("Get(4): %d", lru.Get(4)) // returns 4
 }

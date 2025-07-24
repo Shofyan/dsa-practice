@@ -47,10 +47,7 @@ func main() {
 	stack := Constructor()
 	stack.Push(1)
 	stack.Push(2)
-	fmt.Printf("Top element is: %d
-", stack.Top())   // returns 2
-	fmt.Printf("Popped element is: %d
-", stack.Pop()) // returns 2
-	fmt.Printf("Is stack empty? %v
-", stack.Empty()) // returns false
+	fmt.Printf("Top element is: %d", stack.Top())    // returns 2
+	fmt.Printf("Popped element is: %d", stack.Pop()) // returns 2
+	fmt.Printf("Is stack empty? %v", stack.Empty())  // returns false
 }
