@@ -103,6 +103,25 @@ func postOrder(node *Node) {
 	}
 }
 
+// Display menampilkan struktur pohon secara visual.
+func (t *Tree) Display() {
+	fmt.Println("Struktur Pohon:")
+	display(t.Root, 0, "  ")
+}
+
+// display adalah fungsi pembantu rekursif untuk mencetak pohon.
+func display(node *Node, level int, prefix string) {
+	if node == nil {
+		return
+	}
+	display(node.Right, level+1, "┌──")
+	for i := 0; i < level; i++ {
+		fmt.Print("│   ")
+	}
+	fmt.Println(prefix, node.Key)
+	display(node.Left, level+1, "└──")
+}
+
 func main() {
 	// Buat instance pohon baru.
 	tree := &Tree{}
@@ -116,6 +135,9 @@ func main() {
 	tree.Insert(7)
 	tree.Insert(12)
 	tree.Insert(18)
+
+	// Tampilkan struktur pohon
+	tree.Display()
 
 	// Cetak pohon menggunakan tiga metode traversal yang berbeda.
 	tree.InOrder()   // Output yang diharapkan: 3 5 7 10 12 15 18
