@@ -1,15 +1,19 @@
+// Package main adalah program utama untuk demonstrasi representasi graf menggunakan adjacency matrix dan adjacency list.
 package main
 
 import "fmt"
 
-// Graph using Adjacency Matrix
+// Graph menggunakan Adjacency Matrix (Matriks Ketetanggaan)
 type AdjacencyMatrixGraph struct {
+	// Jumlah simpul (vertex) dalam graf
 	Vertices int
-	Matrix   [][]int
+	// Matriks ketetanggaan untuk menyimpan hubungan antar simpul
+	Matrix [][]int
 }
 
-// NewAdjacencyMatrixGraph creates a new graph with v vertices
+// NewAdjacencyMatrixGraph membuat graf baru dengan jumlah simpul tertentu
 func NewAdjacencyMatrixGraph(vertices int) *AdjacencyMatrixGraph {
+	// Membuat matriks 2 dimensi berukuran vertices x vertices
 	matrix := make([][]int, vertices)
 	for i := range matrix {
 		matrix[i] = make([]int, vertices)
@@ -20,13 +24,13 @@ func NewAdjacencyMatrixGraph(vertices int) *AdjacencyMatrixGraph {
 	}
 }
 
-// AddEdge adds an edge to the graph
+// AddEdge menambahkan sisi (edge) antara dua simpul pada graf
 func (g *AdjacencyMatrixGraph) AddEdge(src, dest int) {
-	g.Matrix[src][dest] = 1
-	g.Matrix[dest][src] = 1 // For undirected graph
+	g.Matrix[src][dest] = 1 // Tandai ada sisi dari src ke dest
+	g.Matrix[dest][src] = 1 // Untuk graf tak berarah, tandai juga dari dest ke src
 }
 
-// Print prints the adjacency matrix
+// Print menampilkan matriks ketetanggaan ke layar
 func (g *AdjacencyMatrixGraph) Print() {
 	fmt.Println("Adjacency Matrix:")
 	for _, row := range g.Matrix {
@@ -34,27 +38,30 @@ func (g *AdjacencyMatrixGraph) Print() {
 	}
 }
 
-// Graph using Adjacency List
+// Graph menggunakan Adjacency List (List Ketetanggaan)
 type AdjacencyListGraph struct {
+	// Jumlah simpul (vertex) dalam graf
 	Vertices int
-	List     map[int][]int
+	// Map untuk menyimpan list ketetanggaan tiap simpul
+	List map[int][]int
 }
 
-// NewAdjacencyListGraph creates a new graph with v vertices
+// NewAdjacencyListGraph membuat graf baru dengan jumlah simpul tertentu
 func NewAdjacencyListGraph(vertices int) *AdjacencyListGraph {
+	// Membuat map kosong untuk adjacency list
 	return &AdjacencyListGraph{
 		Vertices: vertices,
 		List:     make(map[int][]int),
 	}
 }
 
-// AddEdge adds an edge to the graph
+// AddEdge menambahkan sisi (edge) antara dua simpul pada graf
 func (g *AdjacencyListGraph) AddEdge(src, dest int) {
-	g.List[src] = append(g.List[src], dest)
-	g.List[dest] = append(g.List[dest], src) // For undirected graph
+	g.List[src] = append(g.List[src], dest)  // Tambahkan dest ke list src
+	g.List[dest] = append(g.List[dest], src) // Untuk graf tak berarah, tambahkan src ke list dest
 }
 
-// Print prints the adjacency list
+// Print menampilkan adjacency list ke layar
 func (g *AdjacencyListGraph) Print() {
 	fmt.Println("Adjacency List:")
 	for vertex, edges := range g.List {
@@ -63,8 +70,8 @@ func (g *AdjacencyListGraph) Print() {
 }
 
 func main() {
-	// Adjacency Matrix Test
-	v := 5
+	// Contoh penggunaan graf dengan adjacency matrix
+	v := 5 // Jumlah simpul
 	adjMatrixGraph := NewAdjacencyMatrixGraph(v)
 	adjMatrixGraph.AddEdge(0, 1)
 	adjMatrixGraph.AddEdge(0, 4)
@@ -77,7 +84,7 @@ func main() {
 
 	fmt.Println()
 
-	// Adjacency List Test
+	// Contoh penggunaan graf dengan adjacency list
 	adjListGraph := NewAdjacencyListGraph(v)
 	adjListGraph.AddEdge(0, 1)
 	adjListGraph.AddEdge(0, 4)
