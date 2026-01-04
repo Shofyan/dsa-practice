@@ -44,6 +44,8 @@ func findPairs(arr []int, target int) [][]int {
 
 		// Cek apakah angka yang dibutuhkan sudah pernah dilihat
 		if seen[need] {
+
+			// Temukan pasangan
 			a, b := num, need
 			println("Found pair:", a, b)
 
@@ -112,9 +114,39 @@ func main() {
 	arr := []int{1, 2, 3, 4, 5, 6}
 	target := 7
 
-	pairs := findPairs(arr, target)
+	pairs := cariTargetAngka(arr, target)
 	fmt.Println(pairs)
 
-	pairsP := findPairsP(arr, target)
-	fmt.Println(pairsP)
+	// pairsP := findPairsP(arr, target)
+	// fmt.Println(pairsP)
+}
+
+func cariTargetAngka(arr []int, target int) [][]int {
+	result := [][]int{}
+	cekDuplikat := make(map[string]bool)
+	tempArr := make(map[int]bool)
+
+	for _, num := range arr {
+		need := target - num
+
+		if tempArr[need] {
+			a, b := need, num
+
+			if a > b {
+				a, b = b, a
+			}
+
+			key := fmt.Sprintf("%d-%d", a, b)
+			if !cekDuplikat[key] {
+				cekDuplikat[key] = true
+				result = append(result, []int{a, b})
+			}
+		}
+		tempArr[num] = true
+
+	}
+	println(result)
+
+	return result
+
 }
