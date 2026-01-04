@@ -83,6 +83,7 @@ func findPairsP(arr []int, target int) [][]int {
 	for l < r {
 		// Hitung jumlah dari dua pointer
 		sum := arr[l] + arr[r]
+		println("Left:", arr[l], "Right:", arr[r], "Sum:", sum)
 
 		// Jika jumlah sesuai dengan target, simpan pasangan dan pindahkan kedua pointer
 		if sum == target {
@@ -111,14 +112,14 @@ func findPairsP(arr []int, target int) [][]int {
 }
 
 func main() {
-	arr := []int{1, 2, 3, 4, 5, 6}
+	arr := []int{1, 2, 3, 4, 5, 6, 7}
 	target := 7
 
-	pairs := cariTargetAngka(arr, target)
-	fmt.Println(pairs)
+	// pairs := cariTargetAngka(arr, target)
+	// fmt.Println(pairs)
 
-	// pairsP := findPairsP(arr, target)
-	// fmt.Println(pairsP)
+	pairsP := findPairsP(arr, target)
+	fmt.Println(pairsP)
 }
 
 func cariTargetAngka(arr []int, target int) [][]int {
