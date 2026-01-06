@@ -19,6 +19,7 @@ func main() {
 	q := root.Right
 
 	lca := lowestCommonAncestor(root, p, q)
+	lca = lowestCommonAncestorNorecursion(root, p, q)
 	fmt.Printf("Lowest Common Ancestor of %d and %d is: %d\n", p.Val, q.Val, lca.Val)
 
 	arr := []int{1, 2, 3, 4, 5, 6, 7}
