@@ -111,16 +111,16 @@ func findPairsP(arr []int, target int) [][]int {
 	return result
 }
 
-func main() {
-	arr := []int{1, 2, 3, 4, 5, 6, 7}
-	target := 7
+// func main() {
+// 	arr := []int{1, 2, 3, 4, 5, 6, 7}
+// 	target := 7
 
-	// pairs := cariTargetAngka(arr, target)
-	// fmt.Println(pairs)
+// 	// pairs := cariTargetAngka(arr, target)
+// 	// fmt.Println(pairs)
 
-	pairsP := findPairsP(arr, target)
-	fmt.Println(pairsP)
-}
+// 	pairsP := findPairsP(arr, target)
+// 	fmt.Println(pairsP)
+// }
 
 func cariTargetAngka(arr []int, target int) [][]int {
 	result := [][]int{}
