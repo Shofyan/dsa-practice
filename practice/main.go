@@ -3,6 +3,38 @@ package main
 import "fmt"
 
 func main() {
+  
+     	println("valid parentheses Test Cases:")
+	tests := []struct {
+		input    string
+		expected bool
+	}{
+		{"()", true},
+		{"()[]{}", true},
+		{"(]", false},
+		{"([])", true},
+		{"([)]", false},
+		{"", true},          // edge case (optional)
+		{"(((", false},
+		{"{[()]}", true},
+	}
+
+	for i, test := range tests {
+		result := isValid(test.input)
+		status := "FAIL"
+		if result == test.expected {
+			status = "PASS"
+		}
+
+		fmt.Printf(
+			"Test #%d | input: %-8s | expected: %-5v | got: %-5v | %s\n",
+			i+1,
+			test.input,
+			test.expected,
+			result,
+			status,
+		)
+	}
 
 	// lowest common ancestor
 	root := &TreeNode{Val: 3}
