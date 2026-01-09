@@ -3,8 +3,17 @@ package main
 import "fmt"
 
 func main() {
-  
-     	println("valid parentheses Test Cases:")
+
+	// testcase for MergeListNode
+	println("this is merge two sorted list")
+	plist1 := []int{1, 2, 4}
+	plist2 := []int{1, 3, 4}
+	list1 := buildList(plist1)
+	list2 := buildList(plist2)
+	mergedList := MergeListNode(list1, list2)
+	printList(mergedList)
+
+	println("valid parentheses Test Cases:")
 	tests := []struct {
 		input    string
 		expected bool
@@ -14,7 +23,7 @@ func main() {
 		{"(]", false},
 		{"([])", true},
 		{"([)]", false},
-		{"", true},          // edge case (optional)
+		{"", true}, // edge case (optional)
 		{"(((", false},
 		{"{[()]}", true},
 	}
