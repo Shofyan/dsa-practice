@@ -13,7 +13,7 @@ func revese(x int) int {
 		if res > INT_MAX/10 || (res == INT_MAX/10 && res/10 > 7) {
 			return 0
 		}
-		if res < INT_MIN/10 || (res == INT_MIN/10 && res/10 < -1) {
+		if res < INT_MIN/10 || (res == INT_MIN/10 && res/10 < -8) {
 			return 0
 		}
 
