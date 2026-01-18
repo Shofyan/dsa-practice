@@ -100,4 +100,9 @@ func main() {
 	n5 := 5
 	fmt.Println("Test 5 Output:", leastInterval(tasks5, n5)) // Expected: 1
 
+	// test case for palindrome number
+	println("palindrome number ")
+	println("palindrome 121 :", isPalindrome(121))
+	println("palindrome 1213 :", isPalindrome(1213))
+
 }
