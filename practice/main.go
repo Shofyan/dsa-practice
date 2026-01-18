@@ -105,4 +105,7 @@ func main() {
 	println("palindrome 121 :", isPalindrome(121))
 	println("palindrome 1213 :", isPalindrome(1213))
 
+	// test reverse int
+	println("reverse 123123 :", revese(123123))
+
 }
