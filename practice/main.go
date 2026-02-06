@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 func main() {
+	// tests case group anagram
+	fmt.Println(groupAnagrams([]string{"act", "pots", "tops", "cat", "stop", "hat"}))
 
 	// testcase for MergeListNode
 	println("this is merge two sorted list")
